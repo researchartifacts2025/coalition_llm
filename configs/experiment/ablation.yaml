@@ -1,0 +1,43 @@
+# Experiment Configuration: Reproduce Ablation Study
+# Usage: python train.py --config-name=experiment/ablation protocol=coalt_no_complement
+
+defaults:
+  - /config
+  - _self_
+
+# ════════════════════════════════════════════════════════════════════════════════
+# Ablation Settings
+# ════════════════════════════════════════════════════════════════════════════════
+
+experiment:
+  name: ablation_study
+  seed: 42
+  deterministic: true
+  num_episodes: 400
+  max_rounds: 30
+
+# Same game parameters as main experiments
+game:
+  num_agents: 6
+  capability_dims: 3
+  coordination_cost:
+    alpha: 0.15
+    beta: 1.3
+  value_gap_delta: 0.08
+
+api:
+  temperature: 0.0
+
+# ════════════════════════════════════════════════════════════════════════════════
+# Ablation Configurations
+# ════════════════════════════════════════════════════════════════════════════════
+# 
+# Run each ablation variant:
+#   python train.py --config-name=experiment/ablation protocol=coalt
+#   python train.py --config-name=experiment/ablation protocol=coalt_no_capability
+#   python train.py --config-name=experiment/ablation protocol=coalt_no_complement
+#   python train.py --config-name=experiment/ablation protocol=coalt_no_value
+#   python train.py --config-name=experiment/ablation protocol=coalt_no_cost
+#   python train.py --config-name=experiment/ablation protocol=vanilla_cot
+#
+# ════════════════════════════════════════════════════════════════════════════════

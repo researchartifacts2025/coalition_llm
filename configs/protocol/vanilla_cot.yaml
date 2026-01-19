@@ -1,0 +1,36 @@
+# Vanilla Chain-of-Thought (CoT) Protocol Configuration
+# Baseline: Generic step-by-step reasoning without game-theoretic framing
+
+name: vanilla_cot
+type: chain_of_thought
+
+# Standard CoT structure
+steps:
+  - name: understand_situation
+    enabled: true
+    prompt_key: "step1_understand"
+    description: "Understand the current coalition situation"
+  
+  - name: identify_options
+    enabled: true
+    prompt_key: "step2_options"
+    description: "Identify available coalition options"
+  
+  - name: analyze_tradeoffs
+    enabled: true
+    prompt_key: "step3_tradeoffs"
+    description: "Analyze pros and cons of each option"
+  
+  - name: reasoning
+    enabled: true
+    prompt_key: "step4_reasoning"
+    description: "Reason step-by-step about the best choice"
+  
+  - name: conclusion
+    enabled: true
+    prompt_key: "step5_conclusion"
+    description: "State final preference"
+
+# Key difference from CoalT: NO game-theoretic concepts
+# Missing: capability complementarity, per-capita value, coordination cost analysis
+game_theoretic_framing: false

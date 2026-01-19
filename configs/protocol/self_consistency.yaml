@@ -1,0 +1,34 @@
+# Self-Consistency Protocol Configuration
+# Baseline: Multiple CoT paths with majority voting
+
+name: self_consistency
+type: self_consistency
+
+# Multiple reasoning paths
+num_paths: 3
+aggregation: majority_vote
+
+# Uses vanilla CoT structure for each path
+steps:
+  - name: understand_situation
+    enabled: true
+    prompt_key: "step1_understand"
+  
+  - name: identify_options
+    enabled: true
+    prompt_key: "step2_options"
+  
+  - name: analyze_tradeoffs
+    enabled: true
+    prompt_key: "step3_tradeoffs"
+  
+  - name: reasoning
+    enabled: true
+    prompt_key: "step4_reasoning"
+  
+  - name: conclusion
+    enabled: true
+    prompt_key: "step5_conclusion"
+
+# No game-theoretic framing (same as vanilla CoT)
+game_theoretic_framing: false

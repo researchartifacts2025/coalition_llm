@@ -1,0 +1,38 @@
+# Experiment Configuration: Reproduce Main Results
+# Usage: python train.py --config-name=experiment/reproduce_table3 protocol=coalt
+
+defaults:
+  - /config
+  - _self_
+
+# ════════════════════════════════════════════════════════════════════════════════
+# Reproduction Settings (LOCKED - do not modify)
+# ════════════════════════════════════════════════════════════════════════════════
+
+experiment:
+  name: reproduce_table3
+  seed: 42  # Primary seed; also run with 0, 123, 456, 789
+  deterministic: true
+  num_episodes: 400  # As specified in paper
+  max_rounds: 30
+
+# Game parameters exactly as in paper
+game:
+  num_agents: 6
+  capability_dims: 3
+  coordination_cost:
+    alpha: 0.15
+    beta: 1.3
+  value_gap_delta: 0.08
+
+# API settings for reproducibility
+api:
+  temperature: 0.0  # CRITICAL: τ=0 for deterministic outputs
+  max_tokens: 1024
+
+# To run full reproduction with all seeds:
+# for seed in 0 42 123 456 1024; do
+#   for protocol in standard vanilla_cot self_consistency coalt; do
+#     python train.py --config-name=experiment/reproduce_table3 protocol=$protocol seed=$seed
+#   done
+# done

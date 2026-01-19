@@ -1,0 +1,15 @@
+# Standard Prompting Protocol Configuration
+# Baseline: Direct preference query without structured reasoning
+
+name: standard
+type: direct_query
+
+# Single-step direct query
+steps:
+  - name: direct_preference
+    enabled: true
+    prompt_key: "direct_query"
+    description: "Directly ask for coalition preference"
+
+# No structured reasoning
+game_theoretic_framing: false

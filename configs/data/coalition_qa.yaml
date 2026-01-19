@@ -1,0 +1,73 @@
+# Data Configuration: Coalition QA Task
+# Collaborative question-answering requiring diverse expertise
+
+name: coalition_qa
+type: multi_skill_qa
+
+# ════════════════════════════════════════════════════════════════════════════════
+# Dataset Sources
+# ════════════════════════════════════════════════════════════════════════════════
+
+datasets:
+  math:
+    name: "MATH"
+    source: "hendrycks/competition_math"
+    subset_size: 100
+    difficulty_levels: ["easy", "medium", "hard"]
+    capability_dimension: 0  # math
+  
+  facts:
+    name: "MMLU"
+    source: "cais/mmlu"
+    subset_size: 100
+    subjects: ["history", "geography", "biology", "chemistry"]
+    capability_dimension: 1  # facts
+  
+  logic:
+    name: "LogiQA"
+    source: "lucasmccabe/logiqa"
+    subset_size: 100
+    difficulty_levels: ["easy", "medium", "hard"]
+    capability_dimension: 2  # logic
+
+# ════════════════════════════════════════════════════════════════════════════════
+# Task Configuration
+# ════════════════════════════════════════════════════════════════════════════════
+
+task:
+  total_questions: 200
+  questions_per_episode: 1  # One question per coalition formation episode
+  
+  # Stratification across difficulty and capability requirements
+  stratification:
+    by_difficulty: true
+    by_capability: true
+  
+  # Ground-truth difficulty scores for objective value computation
+  difficulty_scoring:
+    method: "calibrated"  # Based on human/model performance
+    normalize: true
+
+# ════════════════════════════════════════════════════════════════════════════════
+# Preprocessing
+# ════════════════════════════════════════════════════════════════════════════════
+
+preprocessing:
+  tokenizer: null  # Raw text for LLM input
+  max_length: 2048
+  
+  # Capability profile estimation
+  capability_estimation:
+    runs_per_model: 3
+    questions_per_benchmark: 100
+    aggregate: "mean"
+
+# ════════════════════════════════════════════════════════════════════════════════
+# Paths
+# ════════════════════════════════════════════════════════════════════════════════
+
+paths:
+  raw: "data/raw"
+  processed: "data/processed"
+  splits: "data/splits"
+  cache: "data/cache"
