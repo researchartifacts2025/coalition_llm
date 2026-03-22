@@ -1,4 +1,4 @@
-# Experiment Configuration: Reproduce Main Results
+# Main Results
 # Usage: python train.py --config-name=experiment/reproduce_table3 protocol=coalt
 
 defaults:

@@ -4,16 +4,6 @@ Training script for coalition formation experiments.
 
 Runs coalition formation episodes with specified protocol and configuration.
 Uses Hydra for configuration management and supports full reproducibility.
-
-Usage:
-    # Run with CoalT protocol
-    python train.py protocol=coalt
-    
-    # Reproduce Table 3 results
-    python train.py --config-name=experiment/reproduce_table3 protocol=coalt
-    
-    # Run ablation study
-    python train.py --config-name=experiment/ablation protocol=coalt_no_complement
 """
 
 from __future__ import annotations

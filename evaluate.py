@@ -7,10 +7,6 @@ Loads results from training runs and performs statistical analysis:
 - Performs statistical significance tests (Wilcoxon signed-rank)
 - Applies Bonferroni correction
 - Computes effect sizes (Cohen's d)
-
-Usage:
-    python evaluate.py --results_dir outputs/
-    python evaluate.py --results_dir outputs/ --baseline Standard --output results.md
 """
 
 from __future__ import annotations

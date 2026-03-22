@@ -1,9 +1,7 @@
 # Coalition Formation in LLM Agent Networks: A Game-Theoretic Framework with Stability Analysis
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://www.python.org/)
 [![PyTorch 2.1+](https://img.shields.io/badge/PyTorch-2.1+-ee4c2c.svg)](https://pytorch.org/)
-[![Conference](https://img.shields.io/badge/IJCAI-2026-purple.svg)](https://ijcai26.org/)
 
 > **The first formal framework for analyzing coalition formation dynamics in LLM agent networks, achieving 73.2% Nash stability (+14.8pp over vanilla CoT) through our Coalition-of-Thought (CoalT) protocol.**
 
@@ -58,35 +56,6 @@ pip install -e .
 python -c "from coalition_llm import CoalitionGame; print('✓ Installation successful')"
 ```
 
-### Option 2: Docker
-
-```bash
-# Build and run
-docker compose run --rm coalition python -c "import coalition_llm; print('✓')"
-```
-
-## 📁 Data Preparation
-
-### Automatic Download
-
-```bash
-# Download and preprocess all datasets
-make data
-
-# Or manually:
-bash scripts/download_data.sh
-```
-
-### Datasets
-
-| Dataset | Description | Size | Source |
-|---------|-------------|------|--------|
-| MATH | Mathematical reasoning | 5K subset | [Hendrycks et al., 2021] |
-| MMLU | Factual knowledge | 5K subset | [Hendrycks et al., 2020] |
-| LogiQA | Logical reasoning | 5K subset | [Liu et al., 2020] |
-
-We use stratified samples for capability profile estimation.
-
 ## 🏋️ Training
 
 ### Run Coalition Formation
@@ -103,21 +72,6 @@ python train.py protocol=self_consistency
 
 # Coalition-of-Thought (Ours)
 python train.py protocol=coalt
-```
-
-### Reproduce Paper Results
-
-```bash
-# Reproduce Table 3 (main results)
-python train.py --config-name=experiment/reproduce_table3 protocol=coalt
-python train.py --config-name=experiment/reproduce_table3 protocol=vanilla_cot
-python train.py --config-name=experiment/reproduce_table3 protocol=standard
-
-# Reproduce Table 4 (ablations)
-python train.py --config-name=experiment/ablation protocol=coalt_no_complement
-
-# Full reproduction (all tables, all seeds)
-bash scripts/reproduce_all.sh
 ```
 
 ## ⚙️ Hyperparameters
@@ -231,24 +185,7 @@ Reproducibility features:
 - Pinned Python hash seed (`PYTHONHASHSEED=42`)
 - Temperature τ=0 for LLM API calls
 
-## 📚 Citation
-
-If you find this work useful, please cite:
-
-```bibtex
-@inproceedings{anonymous2026coalition,
-  title={Coalition Formation in LLM Agent Networks: A Game-Theoretic Framework with Stability Analysis},
-  author={Anonymous},
-  booktitle={Proceedings of the 35th International Joint Conference on Artificial Intelligence (IJCAI)},
-  year={2026},
-  note={Under review}
-}
-```
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## 🙏 Acknowledgments
 
-We thank the anonymous reviewers for their valuable feedback. This work was supported by [Anonymous Institution].
+We thank the anonymous reviewers for their valuable feedback. 
+
