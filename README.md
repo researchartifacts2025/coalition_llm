@@ -11,7 +11,6 @@
 
 ## 📰 News
 
-- **[2026-01-19]** 📝 Paper submitted to IJCAI 2026.
 - **[2026-01-19]** 🚀 Released code, configurations, and evaluation scripts.
 
 ## 🚀 Quick Start
