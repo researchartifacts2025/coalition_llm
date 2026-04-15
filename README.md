@@ -18,13 +18,6 @@
 ```python
 from coalition_llm import CoalitionGame, LLMAgent, CoalTProtocol, StabilityAnalyzer
 
-# Create agents with capability profiles
-agents = [
-    LLMAgent("gpt-4", capabilities={"math": 0.68, "facts": 0.73, "logic": 0.76}),
-    LLMAgent("claude-3", capabilities={"math": 0.62, "facts": 0.78, "logic": 0.74}),
-    LLMAgent("llama-3", capabilities={"math": 0.58, "facts": 0.65, "logic": 0.79}),
-]
-
 # Initialize game and run coalition formation
 game = CoalitionGame(agents, alpha=0.15, beta=1.3)
 protocol = CoalTProtocol()
