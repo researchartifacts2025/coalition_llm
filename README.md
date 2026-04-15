@@ -75,7 +75,7 @@ python train.py protocol=coalt
 
 ## ⚙️ Hyperparameters
 
-### Game Parameters (Table 2 in Paper)
+### Game Parameters
 
 | Parameter | Value | Description |
 |-----------|-------|-------------|
@@ -87,7 +87,7 @@ python train.py protocol=coalt
 | `max_rounds` | 30 | Maximum formation rounds |
 | `temperature` | 0.0 | LLM sampling temperature |
 
-### Agent Capability Profiles (Table 2)
+### Agent Capability Profiles
 
 | Agent | Math | Facts | Logic |
 |-------|------|-------|-------|
@@ -109,7 +109,7 @@ python train.py protocol=coalt
 
 ## 📊 Results
 
-### Main Results (Table 3)
+### Main Results
 
 | Condition | Nash Stable | Conv. (rounds) | Welfare | Consistency |
 |-----------|-------------|----------------|---------|-------------|
@@ -122,7 +122,7 @@ python train.py protocol=coalt
 
 *p < 0.01, **p < 0.001 (Wilcoxon signed-rank test, Bonferroni-corrected vs. Standard)
 
-### Ablation Study (Table 4)
+### Ablation Study
 
 | Configuration | Nash Stable | Δ vs. Full |
 |---------------|-------------|------------|
