@@ -170,21 +170,3 @@ python evaluate.py --results_dir outputs/ --format latex
 | CoalT | 400 | ~30 | ~$300 |
 | **Total** | **1,600** | — | **~$2,400** |
 
-## 🔬 Reproducibility
-
-All experiments use fixed random seeds for reproducibility:
-
-```bash
-python train.py seed=42 protocol=coalt
-```
-
-Reproducibility features:
-- Deterministic PyTorch operations (`torch.use_deterministic_algorithms(True)`)
-- Fixed CUDA operations (`CUBLAS_WORKSPACE_CONFIG=:4096:8`)
-- Pinned Python hash seed (`PYTHONHASHSEED=42`)
-- Temperature τ=0 for LLM API calls
-
-## 🙏 Acknowledgments
-
-We thank the anonymous reviewers for their valuable feedback. 
-
