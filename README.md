@@ -38,7 +38,7 @@ print(f"Nash-stable: {is_stable}, Welfare: {metrics['welfare']:.3f}")
 conda create -n coalition_llm python=3.10 && conda activate coalition_llm
 
 # Clone repository
-git clone https://github.com/anonymous/xxxxxx.git
+git clone https://github.com/researchartifacts2025/coalition_llm.git
 cd coalition-llm
 
 # Install package
